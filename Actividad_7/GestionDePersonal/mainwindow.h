@@ -5,6 +5,7 @@
 #include <QList>
 #include "persona.h"
 #include "alumno.h"
+#include "profesor.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,6 +28,8 @@ private:
 
 public slots:
     void anyadirAlumno();
+    void anyadirProfesor();
+
     void mostrarDetalles(int fila);
 
 };

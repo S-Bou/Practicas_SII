@@ -19,12 +19,14 @@ SOURCES += \
     alumno.cpp \
     main.cpp \
     mainwindow.cpp \
-    persona.cpp
+    persona.cpp \
+    profesor.cpp
 
 HEADERS += \
     alumno.h \
     mainwindow.h \
-    persona.h
+    persona.h \
+    profesor.h
 
 FORMS += \
     mainwindow.ui

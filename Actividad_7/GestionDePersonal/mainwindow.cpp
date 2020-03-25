@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     connect(ui->pushButton_AnyadirAlumno, SIGNAL(pressed()), this, SLOT(anyadirAlumno()));
+    connect(ui->pushButton_AnyadirProfesor, SIGNAL(pressed()), this, SLOT(anyadirProfesor()));
     connect(ui->listWidget_personal, SIGNAL(currentRowChanged(int)), this, SLOT(mostrarDetalles(int)));
 }
 
@@ -24,6 +25,34 @@ void MainWindow::mostrarLista()
     {
         ui->listWidget_personal->addItem(listaDePersonal[i]->Resumen());
     }
+}
+
+void MainWindow::anyadirProfesor()
+{
+    Profesor *profesor = new Profesor;
+
+    profesor->setNumeroDeIdentificacion(ui->lineEdit_NI_Prof->text());
+    profesor->setNombre(ui->lineEdit_Nombre_Prof->text());
+    profesor->setApellidos(ui->lineEdit_Apellidos_Prof->text());
+    profesor->setDepartamento(ui->lineEdit_Departamento_Prof->text());
+    profesor->setDespacho(ui->lineEdit_Despacho_Prof->text());
+
+    QString tutorias = ui->plainTextEdit_Tutorias_Prof->toPlainText();
+
+    /*Lo separamos por líneas*/
+    QStringList lineas = tutorias.split(QRegExp("[\r\n]"), QString::SkipEmptyParts);
+
+    for(int i = 0; i< lineas.count(); i++)
+    {
+        profesor->appendTutoria(lineas[i]);
+    }
+
+    /*Insertamos el profesor al principio de la lista de personal:*/
+    listaDePersonal.prepend(profesor);
+
+    mostrarLista();
+
+    ui->tabWidget->setCurrentIndex(0);
 }
 
 void MainWindow::anyadirAlumno()
