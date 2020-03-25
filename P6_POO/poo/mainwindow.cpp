@@ -26,8 +26,9 @@ void MainWindow::crearPoligono()
     int nLados = ui->spinBox_NumeroLados->text().toInt();
     if(nLados < 3){return;}
 
-   // if(poligono != nullptr){delete poligono;} //Si se han creado multiples objetos los elimina para que solo halla uno
-                                              //Esto hace lo mismo -> if(poligono){delete poligono;}
+//Esta linea la comento porque no me funciona bien, cuando pulso crear poligono se cierra la aplicación
+    //if(poligono != nullptr){delete poligono;} //Si se han creado multiples objetos los elimina para que solo halla uno
+
     poligono = new CPoligono(nLados);         //Aqui se crea el objeto CPoligono
 }
 //###############################################################################################################/
