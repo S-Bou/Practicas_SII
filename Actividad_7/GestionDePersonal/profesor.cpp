@@ -62,7 +62,7 @@ QString Profesor::Descripcion()
     QString res;
 
     res  = "Profesor: \n";
-    res += "DNI/NIER: " + getNumeroDeIdentificacion() + "\n";
+    res += "DNI/NIE: " + getNumeroDeIdentificacion() + "\n";
     res += "Apellidos, Nombre: " + getApellidos() + ", " + getNombre() + "\n";
     res += "Departamento: " + getDepartamento() + "\n";
     res += "Despacho: " + getDespacho() + "\n";

@@ -16,15 +16,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    dni.cpp \
+    documento.cpp \
+    errorwindow.cpp \
     main.cpp \
     mainwindow.cpp \
-    persona.cpp
+    nie.cpp
 
 HEADERS += \
+    dni.h \
+    documento.h \
+    errorwindow.h \
     mainwindow.h \
-    persona.h
+    nie.h
 
 FORMS += \
+    errorwindow.ui \
     mainwindow.ui
 
 # Default rules for deployment.

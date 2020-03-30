@@ -17,7 +17,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::mostrarLista()
+void MainWindow::mostrarLista(void)
 {
     ui->listWidget_personal->clear();
 
