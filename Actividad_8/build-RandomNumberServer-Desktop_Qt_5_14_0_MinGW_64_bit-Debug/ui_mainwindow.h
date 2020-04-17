@@ -26,7 +26,7 @@ public:
     QWidget *centralwidget;
     QPushButton *pushButton_start;
     QPushButton *pushButton_stop;
-    QSpinBox *spinBox;
+    QSpinBox *spinBox_puerto;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -44,11 +44,11 @@ public:
         pushButton_stop->setObjectName(QString::fromUtf8("pushButton_stop"));
         pushButton_stop->setEnabled(false);
         pushButton_stop->setGeometry(QRect(100, 10, 80, 21));
-        spinBox = new QSpinBox(centralwidget);
-        spinBox->setObjectName(QString::fromUtf8("spinBox"));
-        spinBox->setGeometry(QRect(190, 10, 61, 21));
-        spinBox->setMinimum(1024);
-        spinBox->setMaximum(65535);
+        spinBox_puerto = new QSpinBox(centralwidget);
+        spinBox_puerto->setObjectName(QString::fromUtf8("spinBox_puerto"));
+        spinBox_puerto->setGeometry(QRect(190, 10, 61, 21));
+        spinBox_puerto->setMinimum(1024);
+        spinBox_puerto->setMaximum(65535);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));

@@ -18,11 +18,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    randomhandler.cpp
+    randomhandler.cpp \
+    randomserver.cpp
 
 HEADERS += \
     mainwindow.h \
-    randomhandler.h
+    randomhandler.h \
+    randomserver.h
 
 FORMS += \
     mainwindow.ui

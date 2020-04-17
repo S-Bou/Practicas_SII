@@ -90,7 +90,34 @@ bool RandomHandler::setMin(int m)
 
 void RandomHandler::datosDisponibles()
 {
+    while(_socket->canReadLine())
+    {
+        //Leemos una línea del socket y eliminamos los espaciosen blanco al principio y al final de la línea (trimmed())
+        QByteArray buffer = _socket->readLine().trimmed();
+        QString linea = QString::fromUtf8(buffer);
 
+        //Mensaje de traza
+        qDebug().noquote().nospace() << "Petición de " << direccionIpRemota().toString() << ":" << puertoRemoto() << " # " << linea;
+
+        QString reply;
+
+        if(linea == "RDN" || linea == "rdn")
+        {
+            //Si la petición es correcta la respuesta será un número aleatorio (con salto de línea al final)
+            reply = QString().number(rand()) + "\r\n";
+        }
+        else
+        {
+            //Si la petición es incorrecta la respuesta será un mensaje de error.
+            reply = "ERROR 500 Bad request\r\n";
+        }
+
+        //Enviamos la repuesta
+        _socket->write(reply.toUtf8());
+        _socket->flush();
+
+        qDebug().noquote() << "Respondiendo: " << reply.trimmed();
+    }
 }
 
 void RandomHandler::inicializa_qrand()

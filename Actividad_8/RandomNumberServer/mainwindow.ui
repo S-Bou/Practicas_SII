@@ -43,7 +43,7 @@
      <string>Stop</string>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox">
+   <widget class="QSpinBox" name="spinBox_puerto">
     <property name="geometry">
      <rect>
       <x>190</x>
