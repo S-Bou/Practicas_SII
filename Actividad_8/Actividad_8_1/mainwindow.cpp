@@ -56,7 +56,7 @@ void MainWindow::on_pushButton_clicked()
     {
         timer = new QTimer();
         connect(timer, SIGNAL(timeout()), this, SLOT(pedirNumero()));
-        timer->start(2000);
+        timer->start(5000);
     }
 }
 
