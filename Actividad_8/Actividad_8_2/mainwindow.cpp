@@ -54,3 +54,4 @@ void MainWindow::on_pushButton_stop_clicked()
     ui->spinBox_puerto->setEnabled(true);
     qDebug() << "Servidor cerrado.";
 }
+

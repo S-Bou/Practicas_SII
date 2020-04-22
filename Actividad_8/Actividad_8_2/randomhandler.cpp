@@ -1,6 +1,13 @@
 #include "randomhandler.h"
 #include <QDateTime>
 
+inline bool isInt(QString const &s)
+{
+    bool ok;
+    s.toInt(&ok);
+    return ok;
+}
+
 RandomHandler::RandomHandler(QTcpSocket *socket, QObject *parent) : QObject(parent)
 {
     _socket = socket;
@@ -101,6 +108,9 @@ void RandomHandler::datosDisponibles()
 
         QString reply;
 
+        //Con simplified() solo dejamos un espacio entre palabras y con split() guardamos cada palabra en la llista (que es como un vector).
+        QStringList palabras = linea.simplified().split(QRegExp("\\s+"));
+
         if(linea == "RDN" || linea == "rdn")
         {
             //Si la petición es correcta la respuesta será un número aleatorio (con salto de línea al final)
@@ -116,13 +126,41 @@ void RandomHandler::datosDisponibles()
             //Si la petición es correcta la respuesta será el valor máximo del rango de los números aleatorios
             reply = QString().number(max()) + "\r\n";
         }
-        else if(linea == "SETMIN" || linea == "setmin")
+        else if(palabras[0] == "SETMIN" || palabras[0] == "setmin") //Introducir en la aplicación con este formato: SETMIN 123456
         {
+            if(isInt(palabras[1]))  //Comprobamos que lo que sigue a SETMIN es un número
+            {
 
+              int num = palabras[1].toInt();
+              if(setMin(num))
+              {
+                reply = "Se establecio el valor minimo: " + QString().number(min()) + "\r\n";
+              }else{
+                reply = "ERROR, el numero minimo no puede exceder el maximo.";
+              }
+
+            }else
+            {
+                reply = QString("ERROR, el numero minimo es: ") + QString().number(min()) + "\r\n";
+            }
         }
-        else if(linea == "SETMAX" || linea == "setmax")
+        else if(palabras[0] == "SETMAX" || palabras[0] == "setmax") //Introducir en la aplicación con este formato: SETMIN 123456
         {
+            if(isInt(palabras[1]))  //Comprobamos que lo que sigue a SETMIN es un número
+            {
 
+              int num = palabras[1].toInt();
+              if(setMin(num))
+              {
+                reply = "Se establecio el valor maximo: " + QString().number(max()) + "\r\n";
+              }else{
+                reply = "ERROR, el numero maximo no puede ser inferior al minimo.";
+              }
+
+            }else
+            {
+                reply = QString("ERROR, el numero maximo es: ") + QString().number(max()) + "\r\n";
+            }
         }
         else
         {
