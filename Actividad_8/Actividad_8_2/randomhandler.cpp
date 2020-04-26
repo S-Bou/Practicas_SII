@@ -148,9 +148,8 @@ void RandomHandler::datosDisponibles()
         {
             if(isInt(palabras[1]))  //Comprobamos que lo que sigue a SETMIN es un número
             {
-
               int num = palabras[1].toInt();
-              if(setMin(num))
+              if(setMax(num))
               {
                 reply = "Se establecio el valor maximo: " + QString().number(max()) + "\r\n";
               }else{
@@ -161,6 +160,11 @@ void RandomHandler::datosDisponibles()
             {
                 reply = QString("ERROR, el numero maximo es: ") + QString().number(max()) + "\r\n";
             }
+        }
+        else if(linea == "RDNFLOAT" || linea == "rdnfloat")
+        {
+            //Si la petición es correcta la respuesta será un número aleatorio en el rango: [0.0, 1.0[
+            reply = QString().number(rand()/(double)RAND_MAX) + "\r\n";
         }
         else
         {

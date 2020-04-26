@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -27,6 +28,7 @@ public:
     QPushButton *pushButton_start;
     QPushButton *pushButton_stop;
     QSpinBox *spinBox_puerto;
+    QLineEdit *lineEdit;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -34,25 +36,28 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(268, 253);
+        MainWindow->resize(283, 238);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         pushButton_start = new QPushButton(centralwidget);
         pushButton_start->setObjectName(QString::fromUtf8("pushButton_start"));
-        pushButton_start->setGeometry(QRect(90, 70, 80, 21));
+        pushButton_start->setGeometry(QRect(110, 30, 80, 21));
         pushButton_stop = new QPushButton(centralwidget);
         pushButton_stop->setObjectName(QString::fromUtf8("pushButton_stop"));
         pushButton_stop->setEnabled(false);
-        pushButton_stop->setGeometry(QRect(90, 110, 80, 21));
+        pushButton_stop->setGeometry(QRect(110, 70, 80, 21));
         spinBox_puerto = new QSpinBox(centralwidget);
         spinBox_puerto->setObjectName(QString::fromUtf8("spinBox_puerto"));
-        spinBox_puerto->setGeometry(QRect(90, 150, 81, 21));
+        spinBox_puerto->setGeometry(QRect(110, 110, 81, 21));
         spinBox_puerto->setMinimum(1024);
         spinBox_puerto->setMaximum(65535);
+        lineEdit = new QLineEdit(centralwidget);
+        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        lineEdit->setGeometry(QRect(90, 150, 113, 21));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 268, 20));
+        menubar->setGeometry(QRect(0, 0, 283, 20));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -68,6 +73,7 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Servidor 2.0", nullptr));
         pushButton_start->setText(QCoreApplication::translate("MainWindow", "Start", nullptr));
         pushButton_stop->setText(QCoreApplication::translate("MainWindow", "Stop", nullptr));
+        lineEdit->setText(QCoreApplication::translate("MainWindow", "Telnet localhost 1024", nullptr));
     } // retranslateUi
 
 };
