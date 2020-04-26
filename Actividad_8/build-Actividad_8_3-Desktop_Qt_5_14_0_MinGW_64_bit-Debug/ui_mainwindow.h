@@ -37,7 +37,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(465, 567);
+        MainWindow->resize(465, 337);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         pushButton_Hora_Fecha = new QPushButton(centralwidget);
@@ -57,7 +57,7 @@ public:
         pushButton_5->setGeometry(QRect(370, 10, 80, 21));
         listWidget = new QListWidget(centralwidget);
         listWidget->setObjectName(QString::fromUtf8("listWidget"));
-        listWidget->setGeometry(QRect(10, 40, 441, 501));
+        listWidget->setGeometry(QRect(10, 40, 441, 251));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));

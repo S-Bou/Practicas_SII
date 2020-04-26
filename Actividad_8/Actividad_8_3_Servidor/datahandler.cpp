@@ -41,6 +41,18 @@ void DataHandler::datosDisponibles()
             QDateTime dateNow = QDateTime::currentDateTime();
             reply = dateNow.toString() + "\r\n";
         }
+        else if(linea == "hora")
+        {
+            QDateTime dateNow = QDateTime::currentDateTime();
+            QStringList dateList = dateNow.toString().simplified().split(QRegExp("\\s+"));
+            reply = dateList[3] + "\r\n";
+        }
+        else if(linea == "fecha")
+        {
+            QDateTime dateNow = QDateTime::currentDateTime();
+            QStringList dateList = dateNow.toString().simplified().split(QRegExp("\\s+"));
+            reply = dateList[0] + " " + dateList[2] + " " + dateList[1] + " " + dateList[4] + "\r\n";
+        }
         else
         {
             //Si la petición es incorrecta la respuesta será un mensaje de error.

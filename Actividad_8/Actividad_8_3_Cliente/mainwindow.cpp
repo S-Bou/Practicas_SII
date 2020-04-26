@@ -70,12 +70,68 @@ void MainWindow::on_pushButton_Hora_Fecha_clicked()
 
 void MainWindow::on_pushButton_Hora_clicked()
 {
+    ui->listWidget->clear();
 
+    socket = new QTcpSocket();
+
+    if(!socket){return;}    //Si no se puede crear un socket termina el método.
+
+    //Conectamos el socket para que active el SLOT "datosDisponibles" cada vez que reciba datos.
+    connect(socket, SIGNAL(readyRead()), this, SLOT(datosDisponibles()));
+
+    //Conectamos el objeto socket para que sea destruido cuando se cierre la conexión.
+    connect(socket, SIGNAL(disconnected()), socket, SLOT(deleteLater()));
+
+    //Establecemos la conexión
+    socket->connectToHost("localhost", 1024);
+
+    if(socket->isOpen())
+    {
+        //Preparamosla petición web, usando el protocolo HTTP 1.0
+        QString str = "hora\r\n";
+
+        //Esperamos a que se establezca la conexión.
+        socket->waitForConnected();
+
+        //Enviamos el string en formato utf8 (compatible con el servidor web)
+        socket->write(str.toUtf8());
+
+        //Para asegurarnos que la petición se envía inmediatamente invocamos el método flush.
+        socket->flush();
+    }
 }
 
 void MainWindow::on_pushButton_Fecha_clicked()
 {
+    ui->listWidget->clear();
 
+    socket = new QTcpSocket();
+
+    if(!socket){return;}    //Si no se puede crear un socket termina el método.
+
+    //Conectamos el socket para que active el SLOT "datosDisponibles" cada vez que reciba datos.
+    connect(socket, SIGNAL(readyRead()), this, SLOT(datosDisponibles()));
+
+    //Conectamos el objeto socket para que sea destruido cuando se cierre la conexión.
+    connect(socket, SIGNAL(disconnected()), socket, SLOT(deleteLater()));
+
+    //Establecemos la conexión
+    socket->connectToHost("localhost", 1024);
+
+    if(socket->isOpen())
+    {
+        //Preparamosla petición web, usando el protocolo HTTP 1.0
+        QString str = "fecha\r\n";
+
+        //Esperamos a que se establezca la conexión.
+        socket->waitForConnected();
+
+        //Enviamos el string en formato utf8 (compatible con el servidor web)
+        socket->write(str.toUtf8());
+
+        //Para asegurarnos que la petición se envía inmediatamente invocamos el método flush.
+        socket->flush();
+    }
 }
 
 void MainWindow::on_pushButton_Dia_clicked()
