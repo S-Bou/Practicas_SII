@@ -34,25 +34,25 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(184, 237);
+        MainWindow->resize(248, 237);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         pushButton_start = new QPushButton(centralwidget);
         pushButton_start->setObjectName(QString::fromUtf8("pushButton_start"));
-        pushButton_start->setGeometry(QRect(50, 20, 80, 21));
+        pushButton_start->setGeometry(QRect(80, 40, 80, 21));
         pushButton_stop = new QPushButton(centralwidget);
         pushButton_stop->setObjectName(QString::fromUtf8("pushButton_stop"));
         pushButton_stop->setEnabled(false);
-        pushButton_stop->setGeometry(QRect(50, 60, 80, 21));
+        pushButton_stop->setGeometry(QRect(80, 80, 80, 21));
         spinBox_puerto = new QSpinBox(centralwidget);
         spinBox_puerto->setObjectName(QString::fromUtf8("spinBox_puerto"));
-        spinBox_puerto->setGeometry(QRect(50, 100, 81, 21));
+        spinBox_puerto->setGeometry(QRect(80, 120, 81, 21));
         spinBox_puerto->setMinimum(1024);
         spinBox_puerto->setMaximum(65535);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 184, 20));
+        menubar->setGeometry(QRect(0, 0, 248, 20));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -65,7 +65,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Servidor 3.0", nullptr));
         pushButton_start->setText(QCoreApplication::translate("MainWindow", "Start", nullptr));
         pushButton_stop->setText(QCoreApplication::translate("MainWindow", "Stop", nullptr));
     } // retranslateUi

@@ -27,6 +27,12 @@ private slots:
 
     void on_pushButton_Dia_clicked();
 
+    void on_pushButton_Alarma_clicked();
+
+    void on_pushButton_EstablecerAlarma_clicked();
+
+    void on_pushButton_DesdactivarAlarma_clicked();
+
 private:
     Ui::MainWindow *ui;
 

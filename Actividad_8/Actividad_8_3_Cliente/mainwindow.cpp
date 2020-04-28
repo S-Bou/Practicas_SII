@@ -136,5 +136,84 @@ void MainWindow::on_pushButton_Fecha_clicked()
 
 void MainWindow::on_pushButton_Dia_clicked()
 {
+    ui->listWidget->clear();
 
+    socket = new QTcpSocket();
+
+    if(!socket){return;}    //Si no se puede crear un socket termina el método.
+
+    //Conectamos el socket para que active el SLOT "datosDisponibles" cada vez que reciba datos.
+    connect(socket, SIGNAL(readyRead()), this, SLOT(datosDisponibles()));
+
+    //Conectamos el objeto socket para que sea destruido cuando se cierre la conexión.
+    connect(socket, SIGNAL(disconnected()), socket, SLOT(deleteLater()));
+
+    //Establecemos la conexión
+    socket->connectToHost("localhost", 1024);
+
+    if(socket->isOpen())
+    {
+        //Preparamosla petición web, usando el protocolo HTTP 1.0
+        QString str = "diaSemana\r\n";
+
+        //Esperamos a que se establezca la conexión.
+        socket->waitForConnected();
+
+        //Enviamos el string en formato utf8 (compatible con el servidor web)
+        socket->write(str.toUtf8());
+
+        //Para asegurarnos que la petición se envía inmediatamente invocamos el método flush.
+        socket->flush();
+    }
+}
+
+void MainWindow::on_pushButton_Alarma_clicked()
+{
+     ui->listWidget->resize(441, 100);
+     ui->groupBox->setVisible(true);
+     ui->groupBox->setEnabled(true);
+}
+
+void MainWindow::on_pushButton_EstablecerAlarma_clicked()
+{
+    ui->listWidget->clear();
+
+    socket = new QTcpSocket();
+
+    if(!socket){return;}    //Si no se puede crear un socket termina el método.
+
+    //Conectamos el socket para que active el SLOT "datosDisponibles" cada vez que reciba datos.
+    connect(socket, SIGNAL(readyRead()), this, SLOT(datosDisponibles()));
+
+    //Conectamos el objeto socket para que sea destruido cuando se cierre la conexión.
+    connect(socket, SIGNAL(disconnected()), socket, SLOT(deleteLater()));
+
+    //Establecemos la conexión
+    socket->connectToHost("localhost", 1024);
+
+    if(socket->isOpen())
+    {
+        int hora = ui->spinBox_Horas->value();
+        int minutos = ui->spinBox_Minutos->value();
+        int segundos = ui->spinBox_Segundos->value();
+
+        //Preparamosla petición web, usando el protocolo HTTP 1.0
+        QString str = "alarma " + QString::number(hora) + ":" + QString::number(minutos) +  ":" + QString::number(segundos) + "\r\n";
+
+        //Esperamos a que se establezca la conexión.
+        socket->waitForConnected();
+
+        //Enviamos el string en formato utf8 (compatible con el servidor web)
+        socket->write(str.toUtf8());
+
+        //Para asegurarnos que la petición se envía inmediatamente invocamos el método flush.
+        socket->flush();
+    }
+}
+
+void MainWindow::on_pushButton_DesdactivarAlarma_clicked()
+{
+    ui->listWidget->resize(441, 231);
+    ui->groupBox->setEnabled(false);
+    ui->groupBox->setVisible(false);
 }

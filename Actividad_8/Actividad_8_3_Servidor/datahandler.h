@@ -1,7 +1,9 @@
 #ifndef DATAHANDLER_H
 #define DATAHANDLER_H
 
+#include <QTimer>
 #include <QObject>
+#include <QDateTime>
 #include <QTcpSocket>
 #include <QHostAddress>
 
@@ -18,7 +20,7 @@ public:
     quint16 puertoRemoto();
     bool estaAbierto();
     bool cerrar();
-
+    void comprobarHora(QString, QStringList);
 signals:
     void desconectado();
 
@@ -27,6 +29,7 @@ protected slots:
 
 private:
     QTcpSocket *_socket;
+    QTimer *timer;
 
 };
 

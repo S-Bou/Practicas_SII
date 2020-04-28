@@ -1,5 +1,5 @@
 #include "datahandler.h"
-#include <QDateTime>
+
 DataHandler::DataHandler(QTcpSocket *socket, QObject *parent) : QObject(parent)
 {
     _socket = socket;
@@ -13,7 +13,7 @@ DataHandler::DataHandler(QTcpSocket *socket, QObject *parent) : QObject(parent)
         connect(socket, SIGNAL(disconected()), this, SIGNAL(desconectado()));
 
         //Enviamos el primer mensaje del protocolo
-        QString saludo = "RandomServer/1.0\r\n";
+        QString saludo = "RandomServer/3.0\r\n";
         _socket->write(saludo.toUtf8());
         _socket->flush();
 
@@ -33,25 +33,39 @@ void DataHandler::datosDisponibles()
         //Mensaje de traza
         qDebug().noquote().nospace() << "Petición de " << direccionIpRemota().toString() << ":" << puertoRemoto() << " # " << linea;
 
+        QDateTime dateNow = QDateTime::currentDateTime();
+        QStringList dateList = dateNow.toString().simplified().split(QRegExp("\\s+"));
+        QStringList alarmaList = linea.simplified().split(QRegExp("\\s+"));
+
         QString reply;
 
         if(linea == "FechaYHora")
         {
             //Si la petición es correcta la respuesta será un número aleatorio (con salto de línea al final)
-            QDateTime dateNow = QDateTime::currentDateTime();
+
             reply = dateNow.toString() + "\r\n";
         }
         else if(linea == "hora")
         {
-            QDateTime dateNow = QDateTime::currentDateTime();
-            QStringList dateList = dateNow.toString().simplified().split(QRegExp("\\s+"));
             reply = dateList[3] + "\r\n";
         }
         else if(linea == "fecha")
         {
-            QDateTime dateNow = QDateTime::currentDateTime();
-            QStringList dateList = dateNow.toString().simplified().split(QRegExp("\\s+"));
             reply = dateList[0] + " " + dateList[2] + " " + dateList[1] + " " + dateList[4] + "\r\n";
+        }
+        else if(linea == "diaSemana")
+        {
+            reply = dateList[0] + "\r\n";
+        }
+        else if(alarmaList[0] == "alarma")
+        {
+            reply = "Alarma establecida a las: " + alarmaList[1] + "\r\n";
+            //QString horaEstablecida = alarmaList[1] + ":" + alarmaList[2];
+
+//            timer = new QTimer();
+//            connect(timer, SIGNAL(timeout()), this, SLOT(comprobarHora(horaEstablecida, dateList[3])));
+//            timer->start(5000);
+            qDebug() << "Entra en alarma";
         }
         else
         {
@@ -64,6 +78,14 @@ void DataHandler::datosDisponibles()
         _socket->flush();
 
         qDebug().noquote() << "Respondiendo: " << reply.trimmed();
+    }
+}
+
+void DataHandler::comprobarHora(QString establecida, QStringList real)
+{
+    if(true)
+    {
+
     }
 }
 
