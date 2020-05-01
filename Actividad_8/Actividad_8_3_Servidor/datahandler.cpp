@@ -4,6 +4,8 @@ DataHandler::DataHandler(QTcpSocket *socket, QObject *parent) : QObject(parent)
 {
     _socket = socket;
 
+    timer = new QTimer();
+
     if(estaAbierto())
     {
         //Conectamos la señal al slot para leer datos cuando lleguen al socket.
@@ -33,12 +35,11 @@ void DataHandler::datosDisponibles()
         //Mensaje de traza
         qDebug().noquote().nospace() << "Petición de " << direccionIpRemota().toString() << ":" << puertoRemoto() << " # " << linea;
 
-        QDateTime dateNow = QDateTime::currentDateTime();
+        dateNow = QDateTime::currentDateTime();
         QStringList dateList = dateNow.toString().simplified().split(QRegExp("\\s+"));
         QStringList alarmaList = linea.simplified().split(QRegExp("\\s+"));
-        QTime hora = QTime::currentTime();
 
-        QString reply;
+        //QString reply;
 
         if(linea == "FechaYHora")
         {
@@ -64,27 +65,27 @@ void DataHandler::datosDisponibles()
         }
         else if(alarmaList[0] == "alarma")
         {
-            horas   = alarmaList[1].toInt();
-            minutos = alarmaList[2].toInt();
+            horaAlarma = alarmaList[1] + ":00";
+            horaActual = dateNow.time().toString();
 
-            //No hace falta porque los spinBox no dejan poner una hora inválida, pero aqui se comprueba que es válida enviando (hh, mm, ss).
-            if(QTime::isValid(horas, minutos, 00))
-            {
-                reply = "Alarma establecida a las: " + alarmaList[1] + ":" + alarmaList[2] + ", son las: " + hora.toString() + "\r\n";
+            reply = "Alarma establecida a las: " + horaAlarma + ", son las: " + horaActual + "\r\n";
 
-                horaactual = dateNow.time().toString();
-                horaalarma = alarmaList[1] + ":" + alarmaList[2] + ":00";
+            connect(timer, SIGNAL(timeout()), this, SLOT(comprobarHora()));
+            timer->start(1000);
+            qDebug() << "Entra en alarma válida";
 
-                timer = new QTimer();
-                connect(timer, SIGNAL(timeout()), this, SLOT(comprobarHora()));
-                timer->start(1000);
-                qDebug() << "Entra en alarma válida";
-            }
         }
         else if(linea == "erroralarma")
         {
-            //La salida será solo el día
+            //Se ha introducido una hora incorrecta
             reply = "Hora introducida no válida.\r\n";
+        }
+        else if(linea == "desactivarAlarma")
+        {
+            reply = "Alarma desactivada.\r\n";
+            timer->stop();
+            delete timer;
+            //timer = NULL;
         }
         else
         {
@@ -102,11 +103,20 @@ void DataHandler::datosDisponibles()
 
 void DataHandler::comprobarHora(void)
 {
-    qDebug() << "Comprueba alarma" << horaactual << " " << horaalarma;
+    dateNow = QDateTime::currentDateTime();
 
-    if(true)
+    qDebug() << "Comprueba alarma" << dateNow.time().toString();
+
+    if(horaAlarma == dateNow.time().toString())
     {
-        qDebug() << "ALARMA";
+        dateNow = QDateTime::currentDateTime();
+
+         reply = "La alarma se ha activado a las: " + dateNow.time().toString() + "\r\n";
+
+        _socket->write(reply.toUtf8());
+        _socket->flush();
+
+        qDebug().noquote() << "Respondiendo: " << reply.trimmed();
     }
 }
 
@@ -140,4 +150,8 @@ bool DataHandler::cerrar()
     if(!_socket){return false;}
     _socket->close();
     return true;
+}
+DataHandler::~DataHandler()
+{
+    delete timer;
 }

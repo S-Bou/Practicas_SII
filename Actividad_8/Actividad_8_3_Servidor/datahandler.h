@@ -2,7 +2,6 @@
 #define DATAHANDLER_H
 
 #include <QTimer>
-#include <QTime>
 #include <QObject>
 #include <QDateTime>
 #include <QTcpSocket>
@@ -12,7 +11,8 @@ class DataHandler : public QObject
 {
     Q_OBJECT
 public:
-    explicit DataHandler(QTcpSocket * socket, QObject *parent = nullptr);
+    explicit DataHandler(QTcpSocket *socket, QObject *parent = nullptr);
+    ~DataHandler();
 
     //Métodos del socket TCP
     QHostAddress direccionIpLocal();
@@ -32,14 +32,15 @@ private slots:
     void comprobarHora(void);
 
 private:
+    QDateTime dateNow;
     QTcpSocket *_socket;
     QTimer *timer;
-    QTime time;
 
     int horas;
     int minutos;
-    QString horaactual;
-    QString horaalarma;
+    QString reply;
+    QString horaAlarma;
+    QString horaActual;
 
 };
 

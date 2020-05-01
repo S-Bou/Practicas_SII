@@ -117,6 +117,13 @@ public:
         spinBox_MinutosUnidades->setFont(font1);
         spinBox_MinutosUnidades->setMaximum(9);
         MainWindow->setCentralWidget(centralwidget);
+        groupBox->raise();
+        pushButton_Hora_Fecha->raise();
+        pushButton_Hora->raise();
+        pushButton_Fecha->raise();
+        pushButton_Dia->raise();
+        pushButton_Alarma->raise();
+        listWidget->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 467, 20));
@@ -132,7 +139,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Cliente 3.0", nullptr));
         pushButton_Hora_Fecha->setText(QCoreApplication::translate("MainWindow", "Hora y Fecha", nullptr));
         pushButton_Hora->setText(QCoreApplication::translate("MainWindow", "Hora", nullptr));
         pushButton_Fecha->setText(QCoreApplication::translate("MainWindow", "Fecha", nullptr));

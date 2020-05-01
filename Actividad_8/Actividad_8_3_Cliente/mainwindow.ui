@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Cliente 3.0</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton_Hora_Fecha">
@@ -248,6 +248,13 @@ con el siguiente formato: hh:mm</string>
      </property>
     </widget>
    </widget>
+   <zorder>groupBox</zorder>
+   <zorder>pushButton_Hora_Fecha</zorder>
+   <zorder>pushButton_Hora</zorder>
+   <zorder>pushButton_Fecha</zorder>
+   <zorder>pushButton_Dia</zorder>
+   <zorder>pushButton_Alarma</zorder>
+   <zorder>listWidget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
