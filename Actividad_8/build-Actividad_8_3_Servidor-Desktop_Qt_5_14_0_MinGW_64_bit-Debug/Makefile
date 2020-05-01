@@ -535,10 +535,8 @@ compiler_moc_header_make_all: moc_datahandler.cpp moc_mainwindow.cpp moc_randoms
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_datahandler.cpp moc_mainwindow.cpp moc_randomserver.cpp
 moc_datahandler.cpp: ../Actividad_8_3_Servidor/datahandler.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/QObject \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/qobject.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/qnamespace.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QTimer \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qtimer.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qglobal.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qconfig-bootstrapped.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qconfig.h \
@@ -560,6 +558,10 @@ moc_datahandler.cpp: ../Actividad_8_3_Servidor/datahandler.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qmutex.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qnumeric.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qversiontagging.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qbasictimer.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qnamespace.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qobject.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qobjectdefs.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qobjectdefs_impl.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qstring.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qchar.h \
@@ -588,6 +590,12 @@ moc_datahandler.cpp: ../Actividad_8_3_Servidor/datahandler.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qvarlengtharray.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qcontainerfwd.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qobject_impl.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QTime \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qdatetime.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qshareddata.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qhash.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QObject \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QDateTime \
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/QTcpSocket \
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qtcpsocket.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qtnetworkglobal.h \
@@ -595,12 +603,10 @@ moc_datahandler.cpp: ../Actividad_8_3_Servidor/datahandler.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qabstractsocket.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qiodevice.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qdebug.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/qhash.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qmap.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qtextstream.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qlocale.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qvariant.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/qshareddata.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qset.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qcontiguouscache.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qsharedpointer.h \
@@ -728,6 +734,15 @@ moc_mainwindow.cpp: ../Actividad_8_3_Servidor/mainwindow.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qabstractsocket.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qhostaddress.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/QHostAddress \
+		../Actividad_8_3_Servidor/datahandler.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QTimer \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qtimer.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qbasictimer.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QTime \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qdatetime.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QDateTime \
+		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/QTcpSocket \
+		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qtcpsocket.h \
 		moc_predefs.h \
 		C:/Qt/5.14.0/mingw73_64/bin/moc.exe
 	'C:\Qt\5.14.0\mingw73_64\bin\moc.exe' $(DEFINES) --include C:/Users/bouyo/Documents/Sistemas_Informaticos_Industriales/Practicas_SII/Actividad_8/build-Actividad_8_3_Servidor-Desktop_Qt_5_14_0_MinGW_64_bit-Debug/moc_predefs.h -IC:/Qt/5.14.0/mingw73_64/mkspecs/win32-g++ -IC:/Users/bouyo/Documents/Sistemas_Informaticos_Industriales/Practicas_SII/Actividad_8/Actividad_8_3_Servidor -IC:/Qt/5.14.0/mingw73_64/include -IC:/Qt/5.14.0/mingw73_64/include/QtWidgets -IC:/Qt/5.14.0/mingw73_64/include/QtGui -IC:/Qt/5.14.0/mingw73_64/include/QtANGLE -IC:/Qt/5.14.0/mingw73_64/include/QtNetwork -IC:/Qt/5.14.0/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ../Actividad_8_3_Servidor/mainwindow.h -o moc_mainwindow.cpp
@@ -805,6 +820,15 @@ moc_randomserver.cpp: ../Actividad_8_3_Servidor/randomserver.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qsharedpointer_impl.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qhostaddress.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/QHostAddress \
+		../Actividad_8_3_Servidor/datahandler.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QTimer \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qtimer.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qbasictimer.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QTime \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qdatetime.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QDateTime \
+		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/QTcpSocket \
+		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qtcpsocket.h \
 		moc_predefs.h \
 		C:/Qt/5.14.0/mingw73_64/bin/moc.exe
 	'C:\Qt\5.14.0\mingw73_64\bin\moc.exe' $(DEFINES) --include C:/Users/bouyo/Documents/Sistemas_Informaticos_Industriales/Practicas_SII/Actividad_8/build-Actividad_8_3_Servidor-Desktop_Qt_5_14_0_MinGW_64_bit-Debug/moc_predefs.h -IC:/Qt/5.14.0/mingw73_64/mkspecs/win32-g++ -IC:/Users/bouyo/Documents/Sistemas_Informaticos_Industriales/Practicas_SII/Actividad_8/Actividad_8_3_Servidor -IC:/Qt/5.14.0/mingw73_64/include -IC:/Qt/5.14.0/mingw73_64/include/QtWidgets -IC:/Qt/5.14.0/mingw73_64/include/QtGui -IC:/Qt/5.14.0/mingw73_64/include/QtANGLE -IC:/Qt/5.14.0/mingw73_64/include/QtNetwork -IC:/Qt/5.14.0/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ../Actividad_8_3_Servidor/randomserver.h -o moc_randomserver.cpp
@@ -833,10 +857,8 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 ####### Compile
 
 datahandler.o: ../Actividad_8_3_Servidor/datahandler.cpp ../Actividad_8_3_Servidor/datahandler.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/QObject \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/qobject.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/qnamespace.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QTimer \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qtimer.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qglobal.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qconfig-bootstrapped.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qconfig.h \
@@ -858,6 +880,10 @@ datahandler.o: ../Actividad_8_3_Servidor/datahandler.cpp ../Actividad_8_3_Servid
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qmutex.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qnumeric.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qversiontagging.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qbasictimer.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qnamespace.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qobject.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qobjectdefs.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qobjectdefs_impl.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qstring.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qchar.h \
@@ -886,6 +912,12 @@ datahandler.o: ../Actividad_8_3_Servidor/datahandler.cpp ../Actividad_8_3_Servid
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qvarlengtharray.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qcontainerfwd.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qobject_impl.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QTime \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qdatetime.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qshareddata.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qhash.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QObject \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QDateTime \
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/QTcpSocket \
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qtcpsocket.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qtnetworkglobal.h \
@@ -893,12 +925,10 @@ datahandler.o: ../Actividad_8_3_Servidor/datahandler.cpp ../Actividad_8_3_Servid
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qabstractsocket.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qiodevice.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qdebug.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/qhash.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qmap.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qtextstream.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qlocale.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qvariant.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/qshareddata.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qset.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qcontiguouscache.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qsharedpointer.h \
@@ -1024,6 +1054,15 @@ main.o: ../Actividad_8_3_Servidor/main.cpp ../Actividad_8_3_Servidor/mainwindow.
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qabstractsocket.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qhostaddress.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/QHostAddress \
+		../Actividad_8_3_Servidor/datahandler.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QTimer \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qtimer.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qbasictimer.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QTime \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qdatetime.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QDateTime \
+		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/QTcpSocket \
+		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qtcpsocket.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/QApplication \
 		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qapplication.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qcoreapplication.h \
@@ -1150,31 +1189,16 @@ mainwindow.o: ../Actividad_8_3_Servidor/mainwindow.cpp ../Actividad_8_3_Servidor
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qabstractsocket.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qhostaddress.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/QHostAddress \
-		ui_mainwindow.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/QVariant \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/QApplication \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qapplication.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/qeventloop.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtGui/qguiapplication.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtGui/qinputmethod.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/QMenuBar \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qmenubar.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qmenu.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qaction.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/QPushButton \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/QSpinBox \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qspinbox.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtGui/qvalidator.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/qregularexpression.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/QStatusBar \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qstatusbar.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/QWidget
+		../Actividad_8_3_Servidor/datahandler.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QTimer \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qtimer.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qbasictimer.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QTime \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qdatetime.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QDateTime \
+		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/QTcpSocket \
+		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qtcpsocket.h \
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Actividad_8_3_Servidor/mainwindow.cpp
 
 randomserver.o: ../Actividad_8_3_Servidor/randomserver.cpp ../Actividad_8_3_Servidor/randomserver.h \
@@ -1249,7 +1273,16 @@ randomserver.o: ../Actividad_8_3_Servidor/randomserver.cpp ../Actividad_8_3_Serv
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qsharedpointer.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtCore/qsharedpointer_impl.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qhostaddress.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/QHostAddress
+		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/QHostAddress \
+		../Actividad_8_3_Servidor/datahandler.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QTimer \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qtimer.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qbasictimer.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QTime \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/qdatetime.h \
+		C:/Qt/5.14.0/mingw73_64/include/QtCore/QDateTime \
+		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/QTcpSocket \
+		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qtcpsocket.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o randomserver.o ../Actividad_8_3_Servidor/randomserver.cpp
 
 moc_datahandler.o: moc_datahandler.cpp 

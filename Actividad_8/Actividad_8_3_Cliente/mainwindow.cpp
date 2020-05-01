@@ -193,21 +193,39 @@ void MainWindow::on_pushButton_EstablecerAlarma_clicked()
 
     if(socket->isOpen())
     {
-        int hora = ui->spinBox_Horas->value();
-        int minutos = ui->spinBox_Minutos->value();
-        int segundos = ui->spinBox_Segundos->value();
+        int horasDec = ui->spinBox_HorasDecenas->value();
+        int horasUni = ui->spinBox_HorasUnidades->value();
+        int minutosDec = ui->spinBox_MinutosDecenas->value();
+        int minutosUni = ui->spinBox_MinutosUnidades->value();
 
-        //Preparamosla petición web, usando el protocolo HTTP 1.0
-        QString str = "alarma " + QString::number(hora) + ":" + QString::number(minutos) +  ":" + QString::number(segundos) + "\r\n";
+        if(horasDec == 2 && horasUni>3)
+        {
+            //Preparamosla petición web, usando el protocolo HTTP 1.0
+            QString str = "erroralarma\r\n";
 
-        //Esperamos a que se establezca la conexión.
-        socket->waitForConnected();
+            //Esperamos a que se establezca la conexión.
+            socket->waitForConnected();
 
-        //Enviamos el string en formato utf8 (compatible con el servidor web)
-        socket->write(str.toUtf8());
+            //Enviamos el string en formato utf8 (compatible con el servidor web)
+            socket->write(str.toUtf8());
 
-        //Para asegurarnos que la petición se envía inmediatamente invocamos el método flush.
-        socket->flush();
+            //Para asegurarnos que la petición se envía inmediatamente invocamos el método flush.
+            socket->flush();
+        }
+        else
+        {
+            //Preparamosla petición web, usando el protocolo HTTP 1.0
+            QString str = "alarma " + QString::number(horasDec) + QString::number(horasUni) + ":" + QString::number(minutosDec) + QString::number(minutosUni) + "\r\n";
+
+            //Esperamos a que se establezca la conexión.
+            socket->waitForConnected();
+
+            //Enviamos el string en formato utf8 (compatible con el servidor web)
+            socket->write(str.toUtf8());
+
+            //Para asegurarnos que la petición se envía inmediatamente invocamos el método flush.
+            socket->flush();
+        }
     }
 }
 

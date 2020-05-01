@@ -36,36 +36,55 @@ void DataHandler::datosDisponibles()
         QDateTime dateNow = QDateTime::currentDateTime();
         QStringList dateList = dateNow.toString().simplified().split(QRegExp("\\s+"));
         QStringList alarmaList = linea.simplified().split(QRegExp("\\s+"));
+        QTime hora = QTime::currentTime();
 
         QString reply;
 
         if(linea == "FechaYHora")
         {
-            //Si la petición es correcta la respuesta será un número aleatorio (con salto de línea al final)
-
+            //La respuesta será la fecha y la hora con este formato: dd, d MMMM yy hh:mm:ss
             reply = dateNow.toString() + "\r\n";
         }
         else if(linea == "hora")
         {
-            reply = dateList[3] + "\r\n";
+            //La respuesta será la hora: hh:mm:ss
+            reply = dateNow.time().toString() + "\r\n";
         }
         else if(linea == "fecha")
         {
-            reply = dateList[0] + " " + dateList[2] + " " + dateList[1] + " " + dateList[4] + "\r\n";
+            //La salida será solo la fecha con este formato: dd, d MMMM yy
+            reply = dateNow.date().toString() + "\r\n";
+            //Otra opción:
+            //reply = dateList[0] + " " + dateList[2] + " " + dateList[1] + " " + dateList[4] + "\r\n";
         }
         else if(linea == "diaSemana")
         {
+            //La salida será solo el día
             reply = dateList[0] + "\r\n";
         }
         else if(alarmaList[0] == "alarma")
         {
-            reply = "Alarma establecida a las: " + alarmaList[1] + "\r\n";
-            //QString horaEstablecida = alarmaList[1] + ":" + alarmaList[2];
+            horas   = alarmaList[1].toInt();
+            minutos = alarmaList[2].toInt();
 
-//            timer = new QTimer();
-//            connect(timer, SIGNAL(timeout()), this, SLOT(comprobarHora(horaEstablecida, dateList[3])));
-//            timer->start(5000);
-            qDebug() << "Entra en alarma";
+            //No hace falta porque los spinBox no dejan poner una hora inválida, pero aqui se comprueba que es válida enviando (hh, mm, ss).
+            if(QTime::isValid(horas, minutos, 00))
+            {
+                reply = "Alarma establecida a las: " + alarmaList[1] + ":" + alarmaList[2] + ", son las: " + hora.toString() + "\r\n";
+
+                horaactual = dateNow.time().toString();
+                horaalarma = alarmaList[1] + ":" + alarmaList[2] + ":00";
+
+                timer = new QTimer();
+                connect(timer, SIGNAL(timeout()), this, SLOT(comprobarHora()));
+                timer->start(1000);
+                qDebug() << "Entra en alarma válida";
+            }
+        }
+        else if(linea == "erroralarma")
+        {
+            //La salida será solo el día
+            reply = "Hora introducida no válida.\r\n";
         }
         else
         {
@@ -81,11 +100,13 @@ void DataHandler::datosDisponibles()
     }
 }
 
-void DataHandler::comprobarHora(QString establecida, QStringList real)
+void DataHandler::comprobarHora(void)
 {
+    qDebug() << "Comprueba alarma" << horaactual << " " << horaalarma;
+
     if(true)
     {
-
+        qDebug() << "ALARMA";
     }
 }
 

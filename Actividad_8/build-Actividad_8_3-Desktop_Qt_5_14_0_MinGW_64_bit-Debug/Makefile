@@ -897,44 +897,7 @@ mainwindow.o: ../Actividad_8_3_Cliente/mainwindow.cpp ../Actividad_8_3_Cliente/m
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qtnetworkglobal.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qtnetwork-config.h \
 		C:/Qt/5.14.0/mingw73_64/include/QtNetwork/qabstractsocket.h \
-		ui_mainwindow.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/QVariant \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/QApplication \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qapplication.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/qeventloop.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtGui/qguiapplication.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtGui/qinputmethod.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/QListWidget \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qlistwidget.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qlistview.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qframe.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qstyleoption.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtGui/qvalidator.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtCore/qregularexpression.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qslider.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qabstractslider.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qstyle.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qtabbar.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/QMenuBar \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qmenubar.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qmenu.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qaction.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/QPushButton \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/QStatusBar \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/qstatusbar.h \
-		C:/Qt/5.14.0/mingw73_64/include/QtWidgets/QWidget
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Actividad_8_3_Cliente/mainwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
