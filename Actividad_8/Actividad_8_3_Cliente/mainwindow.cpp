@@ -31,12 +31,21 @@ void MainWindow::datosDisponibles()
         //de caracteres es utf8
         QString linea = QString::fromUtf8(buffer);
 
+        if(linea == "RandomServer/3.0")
+        {
+            ui->pushButton_Hora_Fecha->setEnabled(true);
+            ui->pushButton_Hora->setEnabled(true);
+            ui->pushButton_Fecha->setEnabled(true);
+            ui->pushButton_Dia->setEnabled(true);
+            ui->pushButton_Alarma->setEnabled(true);
+        }
+
         //Añadimos la línea de texto a listWidget
         ui->listWidget->addItem(linea);
     }
 }
 
-void MainWindow::on_pushButton_Hora_Fecha_clicked()
+void MainWindow::on_pushButton_Conectar_clicked()
 {
     ui->listWidget->clear();
 
@@ -52,6 +61,11 @@ void MainWindow::on_pushButton_Hora_Fecha_clicked()
 
     //Establecemos la conexión
     socket->connectToHost("localhost", 1024);
+}
+
+void MainWindow::on_pushButton_Hora_Fecha_clicked()
+{
+    ui->listWidget->clear();
 
     if(socket->isOpen())
     {
@@ -73,19 +87,6 @@ void MainWindow::on_pushButton_Hora_clicked()
 {
     ui->listWidget->clear();
 
-    socket = new QTcpSocket();
-
-    if(!socket){return;}    //Si no se puede crear un socket termina el método.
-
-    //Conectamos el socket para que active el SLOT "datosDisponibles" cada vez que reciba datos.
-    connect(socket, SIGNAL(readyRead()), this, SLOT(datosDisponibles()));
-
-    //Conectamos el objeto socket para que sea destruido cuando se cierre la conexión.
-    connect(socket, SIGNAL(disconnected()), socket, SLOT(deleteLater()));
-
-    //Establecemos la conexión
-    socket->connectToHost("localhost", 1024);
-
     if(socket->isOpen())
     {
         //Preparamosla petición web, usando el protocolo HTTP 1.0
@@ -105,19 +106,6 @@ void MainWindow::on_pushButton_Hora_clicked()
 void MainWindow::on_pushButton_Fecha_clicked()
 {
     ui->listWidget->clear();
-
-    socket = new QTcpSocket();
-
-    if(!socket){return;}    //Si no se puede crear un socket termina el método.
-
-    //Conectamos el socket para que active el SLOT "datosDisponibles" cada vez que reciba datos.
-    connect(socket, SIGNAL(readyRead()), this, SLOT(datosDisponibles()));
-
-    //Conectamos el objeto socket para que sea destruido cuando se cierre la conexión.
-    connect(socket, SIGNAL(disconnected()), socket, SLOT(deleteLater()));
-
-    //Establecemos la conexión
-    socket->connectToHost("localhost", 1024);
 
     if(socket->isOpen())
     {
@@ -139,19 +127,6 @@ void MainWindow::on_pushButton_Dia_clicked()
 {
     ui->listWidget->clear();
 
-    socket = new QTcpSocket();
-
-    if(!socket){return;}    //Si no se puede crear un socket termina el método.
-
-    //Conectamos el socket para que active el SLOT "datosDisponibles" cada vez que reciba datos.
-    connect(socket, SIGNAL(readyRead()), this, SLOT(datosDisponibles()));
-
-    //Conectamos el objeto socket para que sea destruido cuando se cierre la conexión.
-    connect(socket, SIGNAL(disconnected()), socket, SLOT(deleteLater()));
-
-    //Establecemos la conexión
-    socket->connectToHost("localhost", 1024);
-
     if(socket->isOpen())
     {
         //Preparamosla petición web, usando el protocolo HTTP 1.0
@@ -168,29 +143,9 @@ void MainWindow::on_pushButton_Dia_clicked()
     }
 }
 
-void MainWindow::on_pushButton_Alarma_clicked()
-{
-     ui->listWidget->resize(441, 100);
-     ui->groupBox->setVisible(true);
-     ui->groupBox->setEnabled(true);
-}
-
 void MainWindow::on_pushButton_EstablecerAlarma_clicked()
 {
     ui->listWidget->clear();
-
-    socket = new QTcpSocket();
-
-    if(!socket){return;}    //Si no se puede crear un socket termina el método.
-
-    //Conectamos el socket para que active el SLOT "datosDisponibles" cada vez que reciba datos.
-    connect(socket, SIGNAL(readyRead()), this, SLOT(datosDisponibles()));
-
-    //Conectamos el objeto socket para que sea destruido cuando se cierre la conexión.
-    connect(socket, SIGNAL(disconnected()), socket, SLOT(deleteLater()));
-
-    //Establecemos la conexión
-    socket->connectToHost("localhost", 1024);
 
     if(socket->isOpen())
     {
@@ -224,23 +179,10 @@ void MainWindow::on_pushButton_EstablecerAlarma_clicked()
 
 void MainWindow::on_pushButton_DesdactivarAlarma_clicked()
 {
-    ui->listWidget->resize(441, 231);
+    ui->listWidget->resize(440, 200);
     ui->groupBox->setEnabled(false);
     ui->groupBox->setVisible(false);
     ui->listWidget->clear();
-
-    socket = new QTcpSocket();
-
-    if(!socket){return;}    //Si no se puede crear un socket termina el método.
-
-    //Conectamos el socket para que active el SLOT "datosDisponibles" cada vez que reciba datos.
-    connect(socket, SIGNAL(readyRead()), this, SLOT(datosDisponibles()));
-
-    //Conectamos el objeto socket para que sea destruido cuando se cierre la conexión.
-    connect(socket, SIGNAL(disconnected()), socket, SLOT(deleteLater()));
-
-    //Establecemos la conexión
-    socket->connectToHost("localhost", 1024);
 
     if(socket->isOpen())
     {
@@ -257,3 +199,11 @@ void MainWindow::on_pushButton_DesdactivarAlarma_clicked()
         socket->flush();
     }
 }
+
+void MainWindow::on_pushButton_Alarma_clicked()
+{
+     ui->listWidget->resize(440, 80);
+     ui->groupBox->setVisible(true);
+     ui->groupBox->setEnabled(true);
+}
+

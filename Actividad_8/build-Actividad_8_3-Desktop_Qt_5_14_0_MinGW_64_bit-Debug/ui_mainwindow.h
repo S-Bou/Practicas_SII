@@ -42,6 +42,7 @@ public:
     QLabel *label_2;
     QSpinBox *spinBox_HorasDecenas;
     QSpinBox *spinBox_MinutosUnidades;
+    QPushButton *pushButton_Conectar;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -49,27 +50,32 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(465, 300);
+        MainWindow->resize(465, 315);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         pushButton_Hora_Fecha = new QPushButton(centralwidget);
         pushButton_Hora_Fecha->setObjectName(QString::fromUtf8("pushButton_Hora_Fecha"));
-        pushButton_Hora_Fecha->setGeometry(QRect(10, 10, 80, 21));
+        pushButton_Hora_Fecha->setEnabled(false);
+        pushButton_Hora_Fecha->setGeometry(QRect(10, 40, 80, 21));
         pushButton_Hora = new QPushButton(centralwidget);
         pushButton_Hora->setObjectName(QString::fromUtf8("pushButton_Hora"));
-        pushButton_Hora->setGeometry(QRect(100, 10, 80, 21));
+        pushButton_Hora->setEnabled(false);
+        pushButton_Hora->setGeometry(QRect(100, 40, 80, 21));
         pushButton_Fecha = new QPushButton(centralwidget);
         pushButton_Fecha->setObjectName(QString::fromUtf8("pushButton_Fecha"));
-        pushButton_Fecha->setGeometry(QRect(190, 10, 80, 21));
+        pushButton_Fecha->setEnabled(false);
+        pushButton_Fecha->setGeometry(QRect(190, 40, 80, 21));
         pushButton_Dia = new QPushButton(centralwidget);
         pushButton_Dia->setObjectName(QString::fromUtf8("pushButton_Dia"));
-        pushButton_Dia->setGeometry(QRect(280, 10, 80, 21));
+        pushButton_Dia->setEnabled(false);
+        pushButton_Dia->setGeometry(QRect(280, 40, 80, 21));
         pushButton_Alarma = new QPushButton(centralwidget);
         pushButton_Alarma->setObjectName(QString::fromUtf8("pushButton_Alarma"));
-        pushButton_Alarma->setGeometry(QRect(370, 10, 80, 21));
+        pushButton_Alarma->setEnabled(false);
+        pushButton_Alarma->setGeometry(QRect(370, 40, 80, 21));
         listWidget = new QListWidget(centralwidget);
         listWidget->setObjectName(QString::fromUtf8("listWidget"));
-        listWidget->setGeometry(QRect(10, 40, 441, 231));
+        listWidget->setGeometry(QRect(10, 70, 440, 200));
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
         groupBox->setEnabled(false);
@@ -116,6 +122,9 @@ public:
         spinBox_MinutosUnidades->setGeometry(QRect(180, 60, 41, 41));
         spinBox_MinutosUnidades->setFont(font1);
         spinBox_MinutosUnidades->setMaximum(9);
+        pushButton_Conectar = new QPushButton(centralwidget);
+        pushButton_Conectar->setObjectName(QString::fromUtf8("pushButton_Conectar"));
+        pushButton_Conectar->setGeometry(QRect(10, 10, 441, 21));
         MainWindow->setCentralWidget(centralwidget);
         groupBox->raise();
         pushButton_Hora_Fecha->raise();
@@ -124,6 +133,7 @@ public:
         pushButton_Dia->raise();
         pushButton_Alarma->raise();
         listWidget->raise();
+        pushButton_Conectar->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 465, 20));
@@ -151,6 +161,7 @@ public:
         label->setText(QCoreApplication::translate("MainWindow", "Establezca aqu\303\255 la hora que desee\n"
 "con el siguiente formato: hh:mm", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", ":", nullptr));
+        pushButton_Conectar->setText(QCoreApplication::translate("MainWindow", "Conectar", nullptr));
     } // retranslateUi
 
 };

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>465</width>
-    <height>300</height>
+    <height>315</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,10 +15,13 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton_Hora_Fecha">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
+      <y>40</y>
       <width>80</width>
       <height>21</height>
      </rect>
@@ -28,10 +31,13 @@
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_Hora">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>10</y>
+      <y>40</y>
       <width>80</width>
       <height>21</height>
      </rect>
@@ -41,10 +47,13 @@
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_Fecha">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>10</y>
+      <y>40</y>
       <width>80</width>
       <height>21</height>
      </rect>
@@ -54,10 +63,13 @@
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_Dia">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>280</x>
-      <y>10</y>
+      <y>40</y>
       <width>80</width>
       <height>21</height>
      </rect>
@@ -67,10 +79,13 @@
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_Alarma">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>370</x>
-      <y>10</y>
+      <y>40</y>
       <width>80</width>
       <height>21</height>
      </rect>
@@ -83,9 +98,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>40</y>
-      <width>441</width>
-      <height>231</height>
+      <y>70</y>
+      <width>440</width>
+      <height>200</height>
      </rect>
     </property>
    </widget>
@@ -248,6 +263,19 @@ con el siguiente formato: hh:mm</string>
      </property>
     </widget>
    </widget>
+   <widget class="QPushButton" name="pushButton_Conectar">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>441</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Conectar</string>
+    </property>
+   </widget>
    <zorder>groupBox</zorder>
    <zorder>pushButton_Hora_Fecha</zorder>
    <zorder>pushButton_Hora</zorder>
@@ -255,6 +283,7 @@ con el siguiente formato: hh:mm</string>
    <zorder>pushButton_Dia</zorder>
    <zorder>pushButton_Alarma</zorder>
    <zorder>listWidget</zorder>
+   <zorder>pushButton_Conectar</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

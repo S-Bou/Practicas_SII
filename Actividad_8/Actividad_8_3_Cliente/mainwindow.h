@@ -33,6 +33,8 @@ private slots:
 
     void on_pushButton_DesdactivarAlarma_clicked();
 
+    void on_pushButton_Conectar_clicked();
+
 private:
     Ui::MainWindow *ui;
 
