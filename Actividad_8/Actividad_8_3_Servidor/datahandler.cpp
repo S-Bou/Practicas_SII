@@ -83,9 +83,8 @@ void DataHandler::datosDisponibles()
         else if(linea == "desactivarAlarma")
         {
             reply = "Alarma desactivada.\r\n";
-            timer->stop();
-            delete timer;
-            //timer = NULL;
+
+            timer->disconnect(timer, SIGNAL(timeout()), this, SLOT(comprobarHora()));
         }
         else
         {

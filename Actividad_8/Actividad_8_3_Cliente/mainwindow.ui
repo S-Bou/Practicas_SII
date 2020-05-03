@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>467</width>
-    <height>301</height>
+    <width>465</width>
+    <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -261,7 +261,7 @@ con el siguiente formato: hh:mm</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>467</width>
+     <width>465</width>
      <height>20</height>
     </rect>
    </property>
